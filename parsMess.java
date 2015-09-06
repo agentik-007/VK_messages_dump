@@ -1,3 +1,5 @@
+package test;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -55,7 +57,6 @@ public class parsMess {
             }
             offsetint = offsetint + 200;
             Thread.sleep(1000);
-            System.out.println("СПААААААТЬ");
         }
 
     }
@@ -64,6 +65,7 @@ public class parsMess {
         JSONParser parser = new JSONParser();
         JSONObject jsonResponse = (JSONObject) parser.parse(resp);
         JSONArray mesList = (JSONArray) jsonResponse.get("response");
+
         for (int i = 1; i < mesList.size(); i++) {
             JSONObject mess = (JSONObject) mesList.get(i);
             String pathname = (String) mess.get("body");
@@ -111,7 +113,6 @@ public class parsMess {
     return sb.toString();
 }
     public static void update(String nameFile, String newText) throws FileNotFoundException {
-        exists(fileName);
         StringBuilder sb = new StringBuilder();
         String oldFile = read(nameFile);
         sb.append(oldFile);
